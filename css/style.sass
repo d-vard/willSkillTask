@@ -1,0 +1,323 @@
+
+html,
+body
+  font-family: 'Rubik', sans-serif
+
+.container
+  max-width: 1340px
+  padding: 0 20px
+  margin: 0 auto
+  width: 100%
+
+// header start
+
+.header
+  background: $dark_bg
+  padding: 20px 0
+  position: relative
+  z-index: 12345
+
+  .header_box
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    .logo
+      display: block
+
+    .burger_btn
+      display: none
+      min-width: 32px
+      margin: -2px 0
+      background: transparent
+      @media(max-width: $tablet)
+        display: block
+        margin-left: 20px
+
+      & span
+        display: block
+        width: 100%
+        height: 3px
+        background: $main_color
+        border-radius: 2px
+        margin: 2px 0
+
+    .header_body
+      flex: 1 1 auto
+      display: flex
+      justify-content: center
+
+      @media(max-width: $tablet)
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+        background: #111111
+        flex-direction: column
+        transform: translateX(-150%)
+        pointer-events: none
+        transition: $linear
+
+      &.active
+        @media(max-width: $tablet)
+          transform: translateX(0)
+          pointer-events: unset
+
+      & > a
+        font-size: $h5
+        color: $main_color
+        margin: 0 20px
+        display: inline-block
+
+        @media(max-width: $big_tablet)
+          font-size: $h5_tablet
+          margin: 0 15px
+        @media(max-width: $tablet)
+          margin: 0
+          padding: 10px
+
+      & > a:hover
+        color: $light_color
+
+    .header_list
+      display: flex
+      align-items: center
+      @media(max-width: $tablet)
+        flex-direction: column
+        align-items: unset
+
+      & li
+        margin: 0 20px
+        font-size: $h5
+        color: $main_color
+        transition: $ease
+        @media(max-width: $big_tablet)
+          font-size: $h5_tablet
+          margin: 0 15px
+        @media(max-width: $tablet)
+          margin: 0
+          padding: 10px
+
+        & a
+          color: inherit
+
+      & li:hover
+        color: $light_color
+
+
+    .basket_btn
+      position: relative
+      @media(max-width: $tablet)
+        margin-left: auto
+
+      & .animating_box
+        position: absolute
+        top: 0
+        right: 0
+        height: 100%
+        display: flex
+        align-items: flex-end
+
+        & .quantity
+          font-size: 12px
+          color: #000
+          background: $light_color
+          min-width: 16px
+          min-height: 16px
+          border-radius: 50%
+          display: flex
+          align-items: center
+          justify-content: center
+          transform: translate(50%, 50%)
+
+      &:hover
+        & .animating_box
+          animation: rotate .6s linear
+
+// header end
+
+// intro start
+
+.intro
+  background-image: url("../img/intro_bg.svg")
+  background-size: cover
+  background-position: center
+  min-height: 100vh
+  display: flex
+  align-items: center
+  @media(max-width: $tablet)
+    position: relative
+    z-index: 1
+  @media(max-width: $phone)
+    align-items: flex-start
+
+  .intro_box
+    position: relative
+    z-index: 1
+    padding: 100px 0
+    @media(max-width: $tablet)
+      position: unset
+      z-index: unset
+    @media(max-width: $phone)
+      padding: 50px 0
+
+    .main_title
+      font-weight: 700
+      font-size: $h1
+      color: $main_color
+      @media(max-width: $tablet)
+        font-size: $h1_tablet
+      @media(max-width: $phone)
+        font-size: $h1_phone
+
+    .into_desc
+      font-size: $h4
+      line-height: 28px
+      margin: 50px 0 120px
+      max-width: 670px
+      @media(max-width: $tablet)
+        font-size: $h4_tablet
+        margin: 20px 0 50px
+
+    .intro_subtitle
+      font-weight: 700
+      font-size: $h3
+      margin-bottom: 15px
+      @media(max-width: $tablet)
+        font-size: $h3_tablet
+        margin-bottom: 10px
+      @media(max-width: $phone)
+        font-size: $h3_phone
+
+    .intro_min_desc
+      font-size: $h5
+      line-height: 21px
+      @media(max-width: $tablet)
+        font-size: $h5_tablet
+
+    .intro_img
+      position: absolute
+      right: 0
+      bottom: -110px
+      z-index: -1
+      @media(max-width: $tablet)
+        max-width: 500px
+        bottom: -50px
+
+// intro end
+
+//product_info start
+
+.product_info
+  background: #111111
+  padding: 110px 0
+  color: $main_color
+
+  .product_main_title
+    font-weight: 700
+    font-size: $h2
+    text-align: center
+    line-height: 1.2
+    @media(max-width: $tablet)
+      font-size: $h2_tablet
+    @media(max-width: $phone)
+      font-size: $h2_phone
+
+    & span
+      color: $light_color
+      display: block
+
+
+  .prices
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 85px 0 60px
+    margin: 0 -15px
+
+    & > *
+      margin: 0 15px
+
+    .old
+      font-size: $h3
+      line-height: 1.2
+      color: #ADADAD
+      text-decoration: line-through
+      @media(max-width: $tablet)
+        font-size: $h3_tablet
+      @media(max-width: $phone)
+        font-size: $h3_phone
+
+    .new
+      font-size: $h2
+      @media(max-width: $tablet)
+        font-size: $h2_tablet
+      @media(max-width: $phone)
+      font-size: $h2_phone
+
+  .product_info_box
+    font-size: $h5
+    line-height: 21px
+    display: flex
+    flex-wrap: wrap
+    @media(max-width: $tablet)
+      font-size: $h5_tablet
+
+    .product_info_block
+      flex: 0 0 33.33%
+      max-width: 33.33%
+      text-align: center
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+      @media(max-width: $phone)
+        flex: 0 0 50%
+        max-width: 50%
+
+      .product_info_title
+        font-size: $h5
+        line-height: 1.2
+        margin-top: 50px
+        @media(max-width: $tablet)
+          font-size: $h5_tablet
+
+        & span
+          color: $light_color
+
+      &.main
+        @media(max-width: $phone)
+          flex: 0 0 100%
+          max-width: 100%
+          order: -1
+          margin-bottom: 20px
+
+        .product_info_title
+          font-size: $h3
+          margin-top: 45px
+          @media(max-width: $tablet)
+            font-size: $h3_tablet
+          @media(max-width: $phone)
+            font-size: $h3_phone
+
+  .checkout_btn
+    text-align: center
+    margin-top: 65px
+
+    .checkout_link
+      font-size: $h5
+      background: $light_color
+      border-radius: 7px
+      display: inline-block
+      color: $dark_color
+      min-width: 256px
+      padding: 16px 32px
+      border: 1px solid transparent
+      transition: $ease
+      @media(max-width: $tablet)
+        font-size: $h5_tablet
+
+      &:hover
+        background: transparent
+        color: $main_color
+        border-color: $light_color
+//product_info end
